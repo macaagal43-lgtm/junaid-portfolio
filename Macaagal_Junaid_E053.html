@@ -1,0 +1,987 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal portfolio of Junaid H. Macaagal, IT student and aspiring web developer.">
+<title>Junaid H. Macaagal | Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #100d19;
+    --surface: #1c1728;
+    --surface2: #261f35;
+    --text: #f8f6ff;
+    --muted: #321472;
+    --purple: #a78bfa;
+    --lime: #67f47c;
+    --border: rgba(102, 148, 10, 0.16);
+    --shadow: rgba(0,0,0,.25);
+}
+
+body.light {
+    --bg: #f7f5fc;
+    --surface: #ffffff;
+    --surface2: #eee9f8;
+    --text: #211a30;
+    --muted: #6d657b;
+    --purple: #40237e;
+    --lime: #587c11;
+    --border: rgba(95,70,145,.2);
+    --shadow: rgba(40,25,65,.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background .3s, color .3s;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    width: min(1100px, 88%);
+    margin: auto;
+}
+
+.highlight {
+    color: var(--lime);
+}
+
+.purple {
+    color: var(--purple);
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--lime);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--text);
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--lime);
+}
+
+.theme-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--lime);
+    border-radius: 50px;
+    padding: 9px 13px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 85vh;
+    display: grid;
+    grid-template-columns: 1.4fr .8fr;
+    align-items: center;
+    gap: 55px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.eyebrow {
+    color: var(--lime);
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.08;
+    margin: 20px 0;
+}
+
+.hero h2 {
+    color: var(--purple);
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.hero p {
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 600px;
+    margin: 22px 0 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 23px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    background: var(--lime);
+    color: #191627;
+    transition: .3s;
+    border: 1px solid var(--lime);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(197,244,103,.18);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--lime);
+}
+
+/* PROFILE */
+
+.profile-wrap {
+    position: relative;
+    width: min(300px, 100%);
+    height: 360px;
+    margin: auto;
+    border: 2px solid var(--lime);
+    border-radius: 45% 45% 18px 18px;
+    background: var(--surface);
+    overflow: hidden;
+    box-shadow: 15px 15px 0 var(--purple);
+    animation: float 4s ease-in-out infinite;
+}
+
+.profile-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: var(--lime);
+    font-size: 60px;
+    font-weight: 800;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* SECTIONS */
+
+section.content-section {
+    padding: 90px 0;
+    scroll-margin-top: 75px;
+}
+
+.section-heading {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    margin-bottom: 35px;
+    line-height: 1.8;
+}
+
+.about-text {
+    color: var(--muted);
+    line-height: 2;
+    max-width: 850px;
+}
+
+/* SKILLS */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 26px;
+    border-radius: 14px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: var(--lime);
+}
+
+.card h3 {
+    color: var(--lime);
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.skill-tag {
+    display: inline-block;
+    color: var(--purple);
+    background: var(--surface2);
+    padding: 5px 12px;
+    border-radius: 30px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* EDUCATION */
+
+.education {
+    border-left: 3px solid var(--lime);
+    padding: 25px;
+    background: var(--surface);
+    border-radius: 0 12px 12px 0;
+    max-width: 700px;
+}
+
+.education h3 {
+    color: var(--lime);
+    margin-bottom: 10px;
+}
+
+.education p {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* PROJECT FILTERS */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.filter-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 9px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: .3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--lime);
+    color: #171421;
+    border-color: var(--lime);
+}
+
+.project-card {
+    overflow: hidden;
+}
+
+.project-visual {
+    height: 145px;
+    background: linear-gradient(135deg, #30204a, #a78bfa, #c5f467);
+    display: grid;
+    place-items: center;
+    font-size: 48px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: #171421;
+}
+
+.project-card .card-link {
+    display: inline-block;
+    color: var(--lime);
+    text-decoration: none;
+    margin-top: 17px;
+    font-size: 14px;
+}
+
+.project-card.hidden {
+    display: none;
+}
+
+/* CERTIFICATES */
+
+.certificate-card {
+    text-align: center;
+}
+
+.certificate-visual {
+    height: 135px;
+    display: grid;
+    place-items: center;
+    font-size: 48px;
+    color: var(--lime);
+    background: var(--surface2);
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+/* RESUME */
+
+.resume-box {
+    background: linear-gradient(130deg, #30204a, #1c1728);
+    padding: 40px;
+    border-radius: 18px;
+    border: 1px solid var(--purple);
+}
+
+.resume-box h3 {
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.resume-box p {
+    color: #d0c8dc;
+    line-height: 1.8;
+    margin-bottom: 23px;
+}
+
+/* CONTACT */
+
+.contact-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 650px;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin: 18px 0;
+    overflow-wrap: anywhere;
+}
+
+.contact-box a:not(.btn) {
+    color: var(--lime);
+    text-decoration: none;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    line-height: 2;
+}
+
+/* ANIMATIONS */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width: 850px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: var(--surface);
+        flex-direction: column;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 55px;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .profile-wrap {
+        width: 230px;
+        height: 275px;
+    }
+
+    .section-heading {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+    <div class="container navbar">
+
+        <div class="logo">JHM.</div>
+
+        <button class="menu-btn" id="menuBtn"
+                aria-label="Toggle navigation">☰</button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+            <button class="theme-btn" id="themeBtn"
+                    aria-label="Toggle color theme">☀</button>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<div class="container hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">WELCOME TO MY PORTFOLIO</div>
+
+        <h1>
+            Junaid H.<br>
+            <span class="purple">Macaagal</span>
+        </h1>
+
+        <h2>IT Student | <span class="highlight" id="typing"></span></h2>
+
+        <p>
+            Hello! I am Junaid H. Macaagal, an Information
+            Technology student passionate about programming,
+            web development, and modern technology.
+
+            I enjoy learning new things, solving problems,
+            and building creative digital projects.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn">Explore Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+
+    </div>
+
+    <div class="profile-wrap">
+        <img src="profile.jpg"
+             alt="Junaid H. Macaagal"
+             onerror="this.outerHTML='<div class=&quot;profile-placeholder&quot;>JHM</div>';">
+    </div>
+
+</div>
+
+<!-- ABOUT -->
+
+<section class="content-section reveal" id="about">
+<div class="container">
+
+    <h2 class="section-heading">
+        About <span class="highlight">Me.</span>
+    </h2>
+
+    <p class="about-text">
+        My name is Junaid H. Macaagal. I am an Information
+        Technology student at ICCT Colleges.
+
+        I am interested in programming, web development,
+        and computer technology. I believe that learning
+        is a continuous journey, and I always aim to
+        improve my knowledge and technical abilities.
+
+        My goal is to become a skilled IT professional and
+        contribute to innovate solutions in the field of technology.
+</div>
+</section>
+
+<!-- SKILLS -->
+
+<section class="content-section reveal" id="skills">
+<div class="container">
+
+    <h2 class="section-heading">
+        My <span class="highlight">Skills.</span>
+    </h2>
+
+    <p class="section-subtitle">
+        Technologies and programming languages I am learning.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Building the structure of web pages.</p>
+            <span class="skill-tag">Web Development</span>
+        </div>
+
+        <div class="card">
+            <h3>CSS</h3>
+            <p>Creating layouts, styling, and responsive designs.</p>
+            <span class="skill-tag">Web Design</span>
+        </div>
+
+        <div class="card">
+            <h3>JavaScript</h3>
+            <p>Learning interactive website functionality.</p>
+            <span class="skill-tag">Programming</span>
+        </div>
+
+        <div class="card">
+            <h3>PHP</h3>
+            <p>Learning server-side processing and form validation.</p>
+            <span class="skill-tag">Backend</span>
+        </div>
+
+        <div class="card">
+            <h3>Python</h3>
+            <p>Practicing programming logic and fundamentals.</p>
+            <span class="skill-tag">Programming</span>
+        </div>
+
+        <div class="card">
+            <h3>SQL</h3>
+            <p>Learning database management and queries.</p>
+            <span class="skill-tag">Database</span>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- EDUCATION -->
+
+<section class="content-section reveal" id="education">
+<div class="container">
+
+    <h2 class="section-heading">
+        My <span class="highlight">Education.</span>
+    </h2>
+
+    <div class="education">
+        <h3>Information Technology</h3>
+        <p>ICCT Colleges</p>
+        <p>College Student</p>
+        <p>Field: Information Technology</p>
+    </div>
+
+</div>
+</section>
+
+<!-- PROJECT GALLERY -->
+
+<section class="content-section reveal" id="projects">
+<div class="container">
+
+    <h2 class="section-heading">
+        My <span class="highlight">Projects.</span>
+    </h2>
+
+    <p class="section-subtitle">
+        A collection of my programming and development work.
+    </p>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="programming">Programming</button>
+    </div>
+
+    <div class="grid">
+
+        <div class="card project-card" data-category="web">
+            <div class="project-visual">🌐</div>
+            <h3>Student Registration Form</h3>
+            <p>
+                A PHP learning project that collects and
+                validates student information.
+            </p>
+            <span class="skill-tag">PHP / HTML / CSS</span>
+        </div>
+
+        <div class="card project-card" data-category="programming">
+            <div class="project-visual">💻</div>
+            <h3>ATM Management System</h3>
+            <p>
+                A C++ learning project that demonstrates
+                basic ATM operations and programming logic.
+            </p>
+            <span class="skill-tag">C++</span>
+        </div>
+
+        <div class="card project-card" data-category="web">
+            <div class="project-visual">✨</div>
+            <h3>Personal Portfolio</h3>
+            <p>
+                A responsive personal website showcasing
+                my background, skills, and projects.
+            </p>
+            <span class="skill-tag">HTML / CSS / JavaScript</span>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- CERTIFICATES -->
+
+<section class="content-section reveal" id="certificates">
+<div class="container">
+
+    <h2 class="section-heading">
+        My <span class="highlight">Certificates.</span>
+    </h2>
+
+    <p class="section-subtitle">
+        Certificates, training, and achievements.
+        Add your actual certificates here.
+    </p>
+
+    <div class="grid">
+
+        <div class="card certificate-card">
+            <div class="certificate-visual">🏆</div>
+            <h3>Certificate 01</h3>
+            <p>Replace with your actual certificate title.</p>
+        </div>
+
+        <div class="card certificate-card">
+            <div class="certificate-visual">🎓</div>
+            <h3>Certificate 02</h3>
+            <p>Replace with your actual certificate title.</p>
+        </div>
+
+        <div class="card certificate-card">
+            <div class="certificate-visual">📜</div>
+            <h3>Certificate 03</h3>
+            <p>Replace with your actual certificate title.</p>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- RESUME -->
+
+<section class="content-section reveal" id="resume">
+<div class="container">
+
+    <div class="resume-box">
+
+        <h3>Want to know more about me?</h3>
+
+        <p>
+            Check out my personal resume to learn more
+            about my educational background, skills,
+            and experiences.
+        </p>
+
+        <a href="resume.pdf" class="btn" download>
+            ↓ Download My Resume
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="content-section reveal" id="contact">
+<div class="container">
+
+    <h2 class="section-heading">
+        Contact <span class="highlight">Me.</span>
+    </h2>
+
+    <p class="section-subtitle">
+        Feel free to connect with me.
+    </p>
+
+    <div class="contact-box">
+
+        <p>
+            <strong>Gmail</strong><br>
+            <a href="mailto:macaagal43@gmail.com">
+                macaagal43@gmail.com
+            </a>
+        </p><strong>📍 Location:</strong><br>
+        Poblacion, Matungao, Lanao del Norte, Philippines
+    </p>
+</div>
+
+        <p>
+            <strong>Facebook</strong><br>
+            <a href="https://www.facebook.com/share/1J8t4xSbS2/"
+               target="_blank" rel="noopener noreferrer">
+                Visit My Facebook Profile ↗
+            </a>
+        </p>
+
+        <a href="mailto:macaagal43@gmail.com" class="btn">
+            Send Me an Email
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 Junaid H. Macaagal</p>
+    <p>Designed with creativity and passion.</p>
+    <p class="highlight">Keep Learning. Keep Growing.</p>
+</footer>
+
+<script>
+
+// MOBILE MENU
+
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+    });
+});
+
+// DARK AND LIGHT MODE
+
+const themeBtn = document.getElementById('themeBtn');
+
+const savedTheme = localStorage.getItem('portfolio-theme');
+
+if (savedTheme === 'light') {
+    document.body.classList.add('light');
+}
+
+function updateThemeButton() {
+    themeBtn.textContent =
+        document.body.classList.contains('light') ? '🌙' : '☀';
+}
+
+updateThemeButton();
+
+themeBtn.addEventListener('click', () => {
+
+    document.body.classList.toggle('light');
+
+    const theme = document.body.classList.contains('light')
+        ? 'light'
+        : 'dark';
+
+    localStorage.setItem('portfolio-theme', theme);
+
+    updateThemeButton();
+});
+
+// TYPING ANIMATION
+
+const words = [
+    'Aspiring Web Developer',
+    'Future IT Professional',
+    'Technology Enthusiast'
+];
+
+let wordIndex = 0;
+let letterIndex = 0;
+let deleting = false;
+
+const typing = document.getElementById('typing');
+
+function typeEffect() {
+
+    const current = words[wordIndex];
+
+    typing.textContent = deleting
+        ? current.substring(0, letterIndex--)
+        : current.substring(0, letterIndex++);
+
+    let speed = deleting ? 45 : 85;
+
+    if (!deleting && letterIndex > current.length) {
+        deleting = true;
+        speed = 1200;
+    }
+
+    if (deleting && letterIndex < 0) {
+        deleting = false;
+        letterIndex = 0;
+        wordIndex = (wordIndex + 1) % words.length;
+    }
+
+    setTimeout(typeEffect, speed);
+}
+
+typeEffect();
+
+// SCROLL REVEAL ANIMATIONS
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+
+    });
+
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(section => {
+    observer.observe(section);
+});
+
+// PROJECT FILTERS
+
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterButtons.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        button.classList.add('active');
+
+        projectCards.forEach(card => {
+
+            const matches =
+                filter === 'all' ||
+                card.dataset.category === filter;
+
+            card.classList.toggle('hidden', !matches);
+
+        });
+
+    });
+
+});
+
+console.log("Junaid H. Macaagal Portfolio Loaded!");
+
+</script>
+
+</body>
+</html>
